@@ -15,7 +15,7 @@
 
     <groupId>com.mcs</groupId>
     <artifactId>springPetClinic</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>springPetClinic</name>
     <description>springPetClinic</description>
 
@@ -52,5 +52,6 @@
         <developerConnection>
             scm:git:git@github.com:mcsymiv/springPetClinic
         </developerConnection>
-    </scm>
+      <tag>HEAD</tag>
+  </scm>
 </project>
