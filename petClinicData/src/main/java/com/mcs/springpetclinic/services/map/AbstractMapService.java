@@ -20,6 +20,13 @@ public abstract class AbstractMapService<S extends BaseEntity, ID extends Long> 
     }
 
     @Override
+    public void saveAll(Set<S> services) {
+        for (S service : services) {
+            this.save(service);
+        }
+    }
+
+    @Override
     public S findById(ID id) {
         return map.get(id);
     }
