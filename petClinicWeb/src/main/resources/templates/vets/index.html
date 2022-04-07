@@ -7,5 +7,11 @@
 <body>
     <h1>All vets</h1>
     <p th:text="'list of vets'">List of vets...</p>
+    <ul th:each="vet : ${vets}">
+        <li>
+            <span th:text="${vet.firstName}"></span>
+            <span th:text="${vet.lastName}"></span>
+        </li>
+    </ul>
 </body>
 </html>
