@@ -1,6 +1,7 @@
 package com.mcs.springpetclinic.bootrstrap;
 
 import com.mcs.springpetclinic.model.Owner;
+import com.mcs.springpetclinic.model.Person;
 import com.mcs.springpetclinic.model.Vet;
 import com.mcs.springpetclinic.services.OwnerService;
 import com.mcs.springpetclinic.services.VetService;
@@ -24,16 +25,18 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        System.out.println("Bootstrap data loader...");
 
         ownerService.saveAll(Set.of(
-                new Owner("john", "thompson"),
-                new Owner("anna", "lee")));
-
+                new Owner.OwnerBuilder().firstName("anna").lastName("lee").build(),
+                new Owner.OwnerBuilder().firstName("john").lastName("thompson").build()
+        ));
+        
         vetService.saveAll(Set.of(
-                new Vet("bill", "billigan"),
-                new Vet("carry", "carrygan")));
+                new Vet.VetBuilder().lastName("collins").firstName("bill").build(),
+                new Vet.VetBuilder().lastName("reeves").firstName("keanu").build()
+        ));
 
+        System.out.println("Bootstrap data loader...");
         System.out.println("Owners: " + ownerService.findAll());
         System.out.println("Vets: " + vetService.findAll());
     }

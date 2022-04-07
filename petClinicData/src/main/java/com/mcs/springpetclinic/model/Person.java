@@ -4,21 +4,41 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class Person extends BaseEntity {
 
-    private String firstName;
-    private String lastName;
+    protected String firstName;
+    protected String lastName;
 
-    public Person(Long id, String firstName, String lastName) {
-        super(id);
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public static class PersonBuilder extends BaseEntity.Builder<PersonBuilder> {
+
+        private String firstName;
+        private String lastName;
+
+        public PersonBuilder firstName(String first) {
+            firstName = first;
+            return this;
+        }
+
+        public PersonBuilder lastName(String last) {
+            lastName = last;
+            return this;
+        }
+
+        @Override
+        public PersonBuilder getThis() {
+            return this;
+        }
+
+        public Person build() {
+            return new Person(this);
+        }
     }
 
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    protected Person(PersonBuilder builder) {
+        super(builder);
+        firstName = builder.firstName;
+        lastName = builder.lastName;
     }
 }
