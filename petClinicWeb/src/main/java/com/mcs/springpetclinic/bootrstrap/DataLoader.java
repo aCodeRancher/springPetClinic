@@ -27,12 +27,12 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("Bootstrap data loader...");
 
         ownerService.saveAll(Set.of(
-                new Owner(1L, "john", "thompson"),
-                new Owner(2L, "anna", "lee")));
+                new Owner("john", "thompson"),
+                new Owner("anna", "lee")));
 
         vetService.saveAll(Set.of(
-                new Vet(1L, "bill", "billigan"),
-                new Vet(2L, "carry", "carrygan")));
+                new Vet("bill", "billigan"),
+                new Vet("carry", "carrygan")));
 
         System.out.println("Owners: " + ownerService.findAll());
         System.out.println("Vets: " + vetService.findAll());

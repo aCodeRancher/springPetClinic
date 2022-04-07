@@ -1,21 +1,28 @@
 package com.mcs.springpetclinic.services.map;
 
+import com.mcs.springpetclinic.exceptions.AbstractMapException;
 import com.mcs.springpetclinic.model.BaseEntity;
 import com.mcs.springpetclinic.services.CrudService;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public abstract class AbstractMapService<S extends BaseEntity, ID extends Long> implements CrudService<S, ID> {
 
-    protected Map<ID, S> map = new HashMap<>();
+    protected Map<Long, S> map = new HashMap<>();
 
     @Override
-    @SuppressWarnings("unchecked")
     public S save(S service) {
-        map.put((ID) service.getId(), service);
+        if (service != null) {
+
+            if (service.getId() == null) {
+                map.put(generateNextId(), service);
+            } else {
+                map.put(service.getId(), service);
+            }
+
+        } else {
+            throw new AbstractMapException("Can't save empty service");
+        }
         return service;
     }
 
@@ -44,5 +51,11 @@ public abstract class AbstractMapService<S extends BaseEntity, ID extends Long> 
     @Override
     public void deleteById(ID id) {
         map.remove(id);
+    }
+
+    private Long generateNextId() {
+        if (map.isEmpty()) return 1L;
+
+        return Collections.max(map.keySet()) + 1L;
     }
 }
