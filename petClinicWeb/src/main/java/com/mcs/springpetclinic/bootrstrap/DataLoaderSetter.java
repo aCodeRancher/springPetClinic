@@ -7,39 +7,41 @@ import com.mcs.springpetclinic.services.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-
-import java.util.Set;
 
 @Component
 @ConditionalOnProperty(
         value="spring.profiles.active",
-        havingValue = "constructor")
-public class DataLoader implements CommandLineRunner {
+        havingValue = "setter")
+public class DataLoaderSetter implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
 
     @Autowired
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoaderSetter(OwnerService ownerService, VetService vetService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
     }
 
     @Override
-    public void run(String... args) {
-        System.out.println("Bootstrap data loader...");
+    public void run(String... args) throws Exception {
+        System.out.println("Data loader setter");
 
-        ownerService.saveAll(Set.of(
-                new Owner("john", "thompson"),
-                new Owner("anna", "lee")));
+        Owner john = new Owner();
+        john.setFirstName("john");
+        john.setLastName("thompson");
 
-        vetService.saveAll(Set.of(
-                new Vet("bill", "billigan"),
-                new Vet("carry", "carrygan")));
+        ownerService.save(john);
+
+        Vet bill = new Vet();
+        bill.setFirstName("bill");
+        bill.setLastName("milligan");
+
+        vetService.save(bill);
 
         System.out.println("Owners: " + ownerService.findAll());
-        System.out.println("Vets: " + vetService.findAll());
+        System.out.println("Vetss: " + vetService.findAll());
+
     }
 }
