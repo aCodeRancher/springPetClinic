@@ -15,8 +15,4 @@ public class BaseEntity implements Serializable {
 
     @ToString.Exclude
     private Long id;
-
-    public BaseEntity(Long id) {
-        this.id = id;
-    }
 }
