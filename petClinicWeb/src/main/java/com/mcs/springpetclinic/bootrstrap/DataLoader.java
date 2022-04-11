@@ -25,6 +25,7 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) {
         System.out.println("Bootstrap data loader...");
+
         Owner john = new Owner();
         john.setFirstName("john");
         john.setLastName("thompson");
