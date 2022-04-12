@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
 <head>
     <meta charset="UTF-8">
     <title>Pet clinic home</title>
 </head>
 <body>
-    <h1>Welcome to Pet clinic</h1>
+    <h2 th:text="#{welcome}">Welcome</h2>
     <h4>This project is based on Spring Boot course of
         <a href="https://www.udemy.com/course/spring-framework-5-beginner-to-guru/">Guru Framework</a>
         on Udemy.
     </h4>
-    <ul>
-        <li>
-            <a th:href="@{/vet}">All vets</a>
-        </li>
-        <li>
-            <a th:href="@{/owner}">All owners</a>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-md-12">
+            <img class="img-responsive" src="../static/resources/images/pets.png" th:src="@{/resources/images/pets.png}"/>
+        </div>
+    </div>
 </body>
 </html>
