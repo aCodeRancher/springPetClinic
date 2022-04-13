@@ -4,8 +4,8 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class Person extends BaseEntity {
 
     private String firstName;
