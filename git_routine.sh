@@ -10,6 +10,6 @@ else
 	echo \"$COMMIT_MESSAGE\"
 	git status
 	git add .
-	git commit -m '$COMMIT_MESSAGE'
+	git commit -m "${COMMIT_MESSAGE}"
 	git push
 fi
