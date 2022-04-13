@@ -15,10 +15,10 @@ public abstract class AbstractMapService<S extends BaseEntity, ID extends Long> 
         if (service != null) {
 
             if (service.getId() == null) {
-                map.put(generateNextId(), service);
-            } else {
-                map.put(service.getId(), service);
+                service.setId(generateNextId());
             }
+
+            map.put(service.getId(), service);
 
         } else {
             throw new AbstractMapException("Can't save empty service");
