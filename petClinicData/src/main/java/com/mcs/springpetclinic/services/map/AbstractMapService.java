@@ -53,7 +53,7 @@ public abstract class AbstractMapService<S extends BaseEntity, ID extends Long> 
         map.remove(id);
     }
 
-    private Long generateNextId() {
+    protected Long generateNextId() {
         if (map.isEmpty()) return 1L;
 
         return Collections.max(map.keySet()) + 1L;

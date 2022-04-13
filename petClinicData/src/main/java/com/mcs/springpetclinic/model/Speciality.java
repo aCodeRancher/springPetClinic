@@ -5,14 +5,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Specialty extends NameEntity {
+public class Speciality extends NameEntity {
 
     private String description;
 
     @Override
     public String toString() {
-        return super.toString() + " " +
-                "Specialty{" +
+        return "Specialty{" +
                 "description='" + description + '\'' +
                 '}';
     }
