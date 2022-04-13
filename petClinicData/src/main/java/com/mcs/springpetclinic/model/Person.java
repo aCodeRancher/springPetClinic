@@ -8,6 +8,9 @@ import lombok.*;
 @ToString(callSuper = true)
 public class Person extends BaseEntity {
 
+    private String address;
+    private String phone;
+    private String city;
     private String firstName;
     private String lastName;
 }
