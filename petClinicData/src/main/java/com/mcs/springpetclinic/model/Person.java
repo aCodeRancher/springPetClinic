@@ -5,7 +5,6 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(callSuper = true)
 public class Person extends BaseEntity {
 
     private String address;
@@ -13,4 +12,16 @@ public class Person extends BaseEntity {
     private String city;
     private String firstName;
     private String lastName;
+
+    @Override
+    public String toString() {
+        return super.toString() + " " +
+                "Person{" +
+                "address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", city='" + city + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }

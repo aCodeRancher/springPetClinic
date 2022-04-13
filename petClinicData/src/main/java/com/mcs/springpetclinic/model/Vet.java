@@ -8,8 +8,15 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
 public class Vet extends Person {
 
     private Set<Specialty> specialties;
+
+    @Override
+    public String toString() {
+        return super.toString() + " " +
+                "Vet{" +
+                "specialties=" + specialties +
+                '}';
+    }
 }

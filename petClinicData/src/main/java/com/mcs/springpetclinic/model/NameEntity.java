@@ -3,19 +3,17 @@ package com.mcs.springpetclinic.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Set;
-
 @Getter
 @Setter
-public class Owner extends Person {
+public class NameEntity extends BaseEntity {
 
-    private Set<Pet> pets;
+    private String name;
 
     @Override
     public String toString() {
         return super.toString() + " " +
-                "Owner{" +
-                "pets=" + pets +
+                "NameEntity{" +
+                "name='" + name + '\'' +
                 '}';
     }
 }
