@@ -2,9 +2,9 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       th:replace="~{fragments/layout :: layout (~{::body},'home')}">
-<head>
+<head th:include="fragments/layout :: headerFragment">
     <meta charset="UTF-8">
-    <title>Pet clinic home</title>
+    <title id="pageTitle">Pet clinic home</title>
 </head>
 <body>
     <h2 th:text="#{welcome}">Welcome</h2>

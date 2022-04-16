@@ -2,9 +2,9 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       th:replace="~{fragments/layout :: layout (~{::body}, 'error')}">
-<head>
+<head th:include="fragments/layout :: headerFragment">
     <meta charset="UTF-8">
-    <title>404 Not Found</title>
+    <title id="pageTitle">Error</title>
 </head>
 <body>
     <h1>Something went wrong!</h1>

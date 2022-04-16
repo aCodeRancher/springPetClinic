@@ -3,9 +3,12 @@ package com.mcs.springpetclinic.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.MappedSuperclass;
+
 @Getter
 @Setter
-public class NameEntity extends BaseEntity {
+@MappedSuperclass
+public abstract class NameEntity extends BaseEntity {
 
     private String name;
 

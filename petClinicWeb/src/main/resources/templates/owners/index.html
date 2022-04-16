@@ -2,9 +2,9 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       th:replace="~{fragments/layout :: layout (~{::body}, 'owners')}">
-<head>
+<head th:include="fragments/layout :: headerFragment">
     <meta charset="UTF-8">
-    <title>All owners</title>
+    <title id="pageTitle">All owners</title>
 </head>
 <body>
     <h2>Owners list</h2>
