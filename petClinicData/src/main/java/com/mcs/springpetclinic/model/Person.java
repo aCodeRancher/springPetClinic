@@ -21,16 +21,4 @@ public class Person extends BaseEntity {
     private String phone;
     @Column(name = "city")
     private String city;
-
-    @Override
-    public String toString() {
-        return super.toString() + " " +
-                "Person{" +
-                "address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", city='" + city + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
 }

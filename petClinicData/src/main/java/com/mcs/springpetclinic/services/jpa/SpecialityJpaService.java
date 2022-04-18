@@ -6,7 +6,8 @@ import com.mcs.springpetclinic.services.SpecialityService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SpecialityJpaService extends AbstractJpaService<Speciality, SpecialityRepository>
+public class SpecialityJpaService
+        extends AbstractJpaService<Speciality, SpecialityRepository>
         implements SpecialityService {
 
     public SpecialityJpaService(SpecialityRepository repository) {

@@ -20,11 +20,4 @@ public class Vet extends Person {
             inverseJoinColumns = @JoinColumn(name = "speciality_id"))
     private Set<Speciality> specialities = new HashSet<>();
 
-    @Override
-    public String toString() {
-        return super.toString() + " " +
-                "Vet{" +
-                "specialties=" + specialities +
-                '}';
-    }
 }

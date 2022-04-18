@@ -26,13 +26,4 @@ public class Pet extends NameEntity {
             cascade = CascadeType.ALL,
             mappedBy = "pet")
     private Set<Visit> visits = new HashSet<>();
-
-    @Override
-    public String toString() {
-        return super.toString() + " " +
-                "Pet{" +
-                "petType=" + petType +
-                ", birthday=" + birthday +
-                '}';
-    }
 }

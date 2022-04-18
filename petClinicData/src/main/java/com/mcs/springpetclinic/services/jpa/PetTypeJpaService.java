@@ -6,7 +6,9 @@ import com.mcs.springpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PetTypeJpaService extends AbstractJpaService<PetType, PetTypeRepository> implements PetTypeService {
+public class PetTypeJpaService
+        extends AbstractJpaService<PetType, PetTypeRepository>
+        implements PetTypeService {
 
     public PetTypeJpaService(PetTypeRepository repository) {
         super(repository);

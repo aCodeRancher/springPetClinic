@@ -6,7 +6,9 @@ import com.mcs.springpetclinic.services.VetService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class VetJpaService extends AbstractJpaService<Vet, VetRepository> implements VetService {
+public class VetJpaService
+        extends AbstractJpaService<Vet, VetRepository>
+        implements VetService {
 
     public VetJpaService(VetRepository repository) {
         super(repository);

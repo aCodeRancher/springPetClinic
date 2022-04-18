@@ -16,10 +16,4 @@ public class Speciality extends NameEntity {
     @Column(name = "description")
     private String description;
 
-    @Override
-    public String toString() {
-        return "Specialty{" +
-                "description='" + description + '\'' +
-                '}';
-    }
 }
