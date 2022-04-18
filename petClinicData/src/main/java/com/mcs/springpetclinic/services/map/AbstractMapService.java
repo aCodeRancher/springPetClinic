@@ -6,7 +6,8 @@ import com.mcs.springpetclinic.services.CrudService;
 
 import java.util.*;
 
-public abstract class AbstractMapService<S extends BaseEntity, ID extends Long> implements CrudService<S, ID> {
+public abstract class AbstractMapService<S extends BaseEntity, ID extends Long>
+        implements CrudService<S> {
 
     protected Map<Long, S> map = new HashMap<>();
 
@@ -34,7 +35,7 @@ public abstract class AbstractMapService<S extends BaseEntity, ID extends Long> 
     }
 
     @Override
-    public S findById(ID id) {
+    public S findById(Long id) {
         return map.get(id);
     }
 
@@ -49,7 +50,7 @@ public abstract class AbstractMapService<S extends BaseEntity, ID extends Long> 
     }
 
     @Override
-    public void deleteById(ID id) {
+    public void deleteById(Long id) {
         map.remove(id);
     }
 
