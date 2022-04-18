@@ -2,6 +2,7 @@ package com.mcs.springpetclinic.bootrstrap;
 
 import com.mcs.springpetclinic.model.*;
 import com.mcs.springpetclinic.services.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+@Slf4j
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -44,7 +46,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
-        System.out.println("Bootstrap data loader...");
+        log.debug("Bootstrap data loader...");
 
         // Pet Type Data Boot
         PetType dogPetType = new PetType();
@@ -85,12 +87,13 @@ public class DataLoader implements CommandLineRunner {
         johnDogVisit.setDescription("Runny nose");
         johnDogVisit.setDate(LocalDateTime.now());
 
+        petService.save(johnPet);
         petTypeService.save(dogPetType);
         ownerService.saveAll(Set.of(john));
         specialityService.saveAll(Set.of(annaSpeciality));
         vetService.saveAll(Set.of(anna));
         visitService.save(johnDogVisit);
 
-        System.out.println("Data loaded successfully...");
+        log.debug("Data loaded successfully...");
     }
 }
