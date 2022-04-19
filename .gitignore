@@ -13,11 +13,13 @@ node_tmp/
 node_modules/
 npm-debug.log.*
 node/
+!petclinic.css
+*.css
 
 ######################
 # SASS
 ######################
-.sass-cache/
+#.sass-cache/
 
 ######################
 # Eclipse
