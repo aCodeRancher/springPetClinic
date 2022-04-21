@@ -1,7 +1,6 @@
 package com.mcs.springpetclinic.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -9,8 +8,11 @@ import javax.persistence.MappedSuperclass;
 @Getter
 @Setter
 @MappedSuperclass
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class NameEntity extends BaseEntity {
 
     @Column(name = "name")
     private String name;
+
 }

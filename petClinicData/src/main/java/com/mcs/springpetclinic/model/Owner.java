@@ -1,7 +1,6 @@
 package com.mcs.springpetclinic.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -13,8 +12,27 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "owners")
 public class Owner extends Person {
+
+    @Builder
+    public Owner(
+            Long id,
+            String firstName,
+            String lastName,
+            String address,
+            String city,
+            String phone,
+            Set<Pet> pets
+    ) {
+        super(id, firstName, lastName, address, city, phone);
+
+        if(pets != null) {
+            this.pets = pets;
+        }
+    }
 
     @OneToMany(
             cascade = CascadeType.ALL,

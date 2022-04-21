@@ -23,7 +23,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
+<nav class="navbar navbar-expand-lg" role="navigation">
     <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/}"><span></span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar">
@@ -43,19 +43,19 @@
 
             </ul>
 
-            <ul class="nav navbar-nav me-auto">
+            <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li th:replace="::menuItem ('/','home','home page','home','Home')">
                     <span class="fa fa-home" aria-hidden="true"></span>
                     <span>Home</span>
                 </li>
 
-                <li th:replace="::menuItem ('/owners/find','owners','find owners','search','Find owners')">
+                <li th:replace="::menuItem ('/owners/','owners','find owners','search','Find owners')">
                     <span class="fa fa-search" aria-hidden="true"></span>
                     <span>Find owners</span>
                 </li>
 
-                <li th:replace="::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')">
+                <li th:replace="::menuItem ('/vets/','vets','veterinarians','th-list','Veterinarians')">
                     <span class="fa fa-th-list" aria-hidden="true"></span>
                     <span>Veterinarians</span>
                 </li>

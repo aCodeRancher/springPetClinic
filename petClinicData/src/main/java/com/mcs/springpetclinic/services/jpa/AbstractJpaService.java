@@ -3,7 +3,7 @@ package com.mcs.springpetclinic.services.jpa;
 import com.mcs.springpetclinic.model.BaseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public abstract class AbstractJpaService<T extends BaseEntity, R extends JpaRepository<T, Long>>
@@ -16,8 +16,8 @@ public abstract class AbstractJpaService<T extends BaseEntity, R extends JpaRepo
     }
 
     @Override
-    public Set<T> findAll() {
-        return new HashSet<>(repository.findAll());
+    public List<T> findAll() {
+        return repository.findAll();
     }
 
     @Override
@@ -26,8 +26,8 @@ public abstract class AbstractJpaService<T extends BaseEntity, R extends JpaRepo
     }
 
     @Override
-    public T save(T object) {
-        return repository.save(object);
+    public void save(T object) {
+        repository.save(object);
     }
 
     @Override
