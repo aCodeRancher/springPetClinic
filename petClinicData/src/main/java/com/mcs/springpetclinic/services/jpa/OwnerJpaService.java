@@ -1,6 +1,5 @@
 package com.mcs.springpetclinic.services.jpa;
 
-import com.mcs.springpetclinic.exceptions.NoFoundJpaEntityException;
 import com.mcs.springpetclinic.model.Owner;
 import com.mcs.springpetclinic.repository.OwnerRepository;
 import com.mcs.springpetclinic.services.OwnerService;

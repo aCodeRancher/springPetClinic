@@ -17,7 +17,7 @@ public class OwnerController {
     }
 
     @GetMapping({"", "/", "index", "index.html"})
-    public String getAllOwners(Model model) {
+    public String getIndex(Model model) {
         model.addAttribute("owners", ownerService.findAll());
         return "owners/index";
     }

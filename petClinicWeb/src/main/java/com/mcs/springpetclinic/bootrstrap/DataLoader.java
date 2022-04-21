@@ -87,7 +87,7 @@ public class DataLoader implements CommandLineRunner {
         johnDogVisit.setDescription("Runny nose");
         johnDogVisit.setDate(LocalDateTime.now());
 
-//        petService.save(johnPet);
+        // petService.save(johnPet);
         petTypeService.save(dogPetType);
         ownerService.saveAll(Set.of(john));
         specialityService.saveAll(Set.of(annaSpeciality));
