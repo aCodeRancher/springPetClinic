@@ -62,14 +62,14 @@ class OwnerJpaServiceTest {
 
     @Test
     void saveTest() {
-        ownerRepository.save(any());
-        verify(ownerRepository, times(1)).save(any());
+        ownerService.save(any());
+        verify(ownerRepository).save(any());
     }
 
     @Test
     void deleteByIdTest() {
-        ownerRepository.deleteById(anyLong());
-        verify(ownerRepository, times(1)).deleteById(anyLong());
+        ownerService.deleteById(anyLong());
+        verify(ownerRepository).deleteById(anyLong());
     }
 
 }
