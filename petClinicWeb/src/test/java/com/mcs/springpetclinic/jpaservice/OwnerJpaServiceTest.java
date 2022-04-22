@@ -3,14 +3,15 @@ package com.mcs.springpetclinic.jpaservice;
 import com.mcs.springpetclinic.model.Owner;
 import com.mcs.springpetclinic.repository.OwnerRepository;
 import com.mcs.springpetclinic.services.jpa.OwnerJpaService;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 public class OwnerJpaServiceTest {
 
@@ -21,21 +22,21 @@ public class OwnerJpaServiceTest {
     OwnerJpaService ownerJpaService;
 
     @BeforeEach
-    public void setup() {
-        MockitoAnnotations.openMocks(this);
+    void setup() {
+        openMocks(this);
         ownerJpaService = new OwnerJpaService(ownerRepository);
     }
 
     @Test
-    public void findByIdTest() {
+    void findByIdTest() {
         // arrange
         List<Owner> ownerData = List.of(new Owner());
 
         // act
-        Mockito.when(ownerRepository.findAll())
+        when(ownerRepository.findAll())
                 .thenReturn(ownerData);
 
         // assert
-        Assertions.assertEquals(1, ownerRepository.findAll().size());
+        assertEquals(1, ownerRepository.findAll().size());
     }
 }
