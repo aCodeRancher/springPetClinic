@@ -21,6 +21,20 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
+
+      - restore_cache:
+          keys:
+            - spring-pet-clinic-{{ checksum "pom.xml" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependecies-
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: spring-pet-clinic-{{ checksum "pom.xml" }}
+
+      - run: mvn dependency:go-offline
+
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
