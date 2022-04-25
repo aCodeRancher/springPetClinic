@@ -4,7 +4,7 @@
   th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
   <head th:include="fragments/layout :: headerFragment">
     <meta charset="UTF-8">
-    <title id="pageTitle">All owners</title>
+    <title id="pageTitle" th:text="${owner.firstName} + ' ' ${owner.lastName}">Owner last and first name</title>
   </head>
   <body>
     <h2>Owner Information</h2>

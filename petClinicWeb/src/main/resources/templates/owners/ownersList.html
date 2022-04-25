@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+<head th:include="fragments/layout :: headerFragment">
+    <meta charset="UTF-8">
+    <title id="pageTitle">Owners</title>
+</head>
 
 <body>
 
@@ -17,7 +23,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr th:each="owner : ${listOwners}">
+  <tr th:each="owner : ${owners}">
     <td>
       <a th:href="@{/owners/__${owner.id}__}" th:text="${owner.firstName + ' ' + owner.lastName}"/></a>
     </td>
