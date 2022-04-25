@@ -4,6 +4,7 @@ import com.mcs.springpetclinic.controllers.owner.OwnerController;
 import com.mcs.springpetclinic.model.Owner;
 import com.mcs.springpetclinic.services.OwnerService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -16,7 +17,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -54,5 +56,15 @@ class OwnerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name(VIEW_NAME))
                 .andExpect(model().attribute(OWNER_ATTRIBUTE, hasSize(1)));
+    }
+
+    @Test
+    void displayOwner() throws Exception {
+        when(service.findById(anyLong())).thenReturn(Owner.builder().id(1L).build());
+
+        mockMvc.perform(get("/owners/123")) // any long value 123
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownerDetails"))
+                .andExpect(model().attribute("owner", hasProperty("id", is(1L))));
     }
 }
