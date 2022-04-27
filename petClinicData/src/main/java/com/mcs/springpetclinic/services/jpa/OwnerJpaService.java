@@ -20,8 +20,8 @@ public class OwnerJpaService extends AbstractJpaService<Owner, OwnerRepository> 
     }
 
     @Override
-    public List<Owner> findByLastNameLike(String lastName) {
-        return repository.findByLastNameLike(lastName);
+    public List<Owner> findAllByLastNameContainingIgnoreCase(String lastName) {
+        return repository.findAllByLastNameContainingIgnoreCase(lastName);
     }
 
     @Override

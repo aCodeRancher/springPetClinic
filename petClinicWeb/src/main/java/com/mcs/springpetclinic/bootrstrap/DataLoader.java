@@ -52,6 +52,9 @@ public class DataLoader implements CommandLineRunner {
         PetType dogPetType = new PetType();
         dogPetType.setName("Dog");
 
+        PetType catPetType = new PetType();
+        catPetType.setName("Cat");
+
         // Owners Data Boot
         Owner john = new Owner();
         john.setFirstName("john");
@@ -60,6 +63,13 @@ public class DataLoader implements CommandLineRunner {
         john.setCity("NY");
         john.setPhone("123");
 
+        Owner bill = new Owner();
+        bill.setFirstName("bill");
+        bill.setLastName("Robinson");
+        bill.setAddress("Polynos");
+        bill.setCity("Athens");
+        bill.setPhone("432");
+
         // John Pet Data Boot
         Pet johnPet = new Pet();
         johnPet.setPetType(dogPetType);
@@ -67,6 +77,13 @@ public class DataLoader implements CommandLineRunner {
         johnPet.setName("Brian");
         johnPet.setBirthday(LocalDate.of(2010, 9, 23));
         john.getPets().add(johnPet);
+
+        Pet billPet = new Pet();
+        billPet.setPetType(catPetType);
+        billPet.setOwner(bill);
+        billPet.setName("Pussy");
+        billPet.setBirthday(LocalDate.of(2014, 3, 3));
+        bill.getPets().add(billPet);
 
         // Vet Data Boot
         Vet anna = new Vet();
@@ -88,8 +105,8 @@ public class DataLoader implements CommandLineRunner {
         johnDogVisit.setDate(LocalDateTime.now());
 
         // petService.save(johnPet);
-        petTypeService.save(dogPetType);
-        ownerService.saveAll(Set.of(john));
+        petTypeService.saveAll(Set.of(dogPetType, catPetType));
+        ownerService.saveAll(Set.of(john, bill));
         specialityService.saveAll(Set.of(annaSpeciality));
         vetService.saveAll(Set.of(anna));
         visitService.save(johnDogVisit);

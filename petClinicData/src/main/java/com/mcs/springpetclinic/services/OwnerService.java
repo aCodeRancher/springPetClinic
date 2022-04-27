@@ -9,8 +9,8 @@ public interface OwnerService extends CrudJpaService<Owner> {
 
     Owner findByLastName(String lastName);
 
-    List<Owner> findByLastNameLike(String lastName);
-
     List<Owner> findAllByLastNameLike(String lastName);
+
+    List<Owner> findAllByLastNameContainingIgnoreCase(String lastName);
 
 }
