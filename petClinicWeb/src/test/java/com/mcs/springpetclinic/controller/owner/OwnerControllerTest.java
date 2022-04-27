@@ -6,16 +6,12 @@ import com.mcs.springpetclinic.services.OwnerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -67,7 +63,7 @@ class OwnerControllerTest {
 
     @Test
     void processFindFormReturnMany() throws Exception {
-        when(service.findAllByLastNameLike(anyString()))
+        when(service.findAllByLastNameContainingIgnoreCase(anyString()))
                 .thenReturn(owners);
 
         mockMvc.perform(get("/owners"))
@@ -78,7 +74,7 @@ class OwnerControllerTest {
 
     @Test
     void processFindFormReturnOneRedirect() throws Exception {
-        when(service.findAllByLastNameLike(anyString()))
+        when(service.findAllByLastNameContainingIgnoreCase(anyString()))
                 .thenReturn(Collections.singletonList(Owner.builder().id(3L).build()));
 
         mockMvc.perform(get("/owners"))
@@ -88,7 +84,7 @@ class OwnerControllerTest {
 
     @Test
     void processFindFormFoundNone() throws Exception {
-        when(service.findAllByLastNameLike(anyString()))
+        when(service.findAllByLastNameContainingIgnoreCase(anyString()))
                 .thenReturn(Collections.emptyList());
 
         mockMvc.perform(get("/owners"))
