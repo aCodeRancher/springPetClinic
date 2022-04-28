@@ -1,6 +1,7 @@
 package com.mcs.springpetclinic.model;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -31,11 +32,15 @@ public class Pet extends NameEntity {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
+
     @Column(name = "birth_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
+
     @ManyToOne
     @JoinColumn(name = "type_id")
     private PetType petType;
+
     @OneToMany(
             cascade = CascadeType.ALL,
             mappedBy = "pet")

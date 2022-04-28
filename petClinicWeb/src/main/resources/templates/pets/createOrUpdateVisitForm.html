@@ -1,6 +1,11 @@
 <html xmlns:th="https://www.thymeleaf.org"
   th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 
+<head th:include="fragments/layout :: headerFragment">
+  <meta charset="UTF-8">
+  <title id="pageTitle">Edit Visit</title>
+</head>
+
 <body>
 
   <h2>
