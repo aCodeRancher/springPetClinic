@@ -5,7 +5,7 @@ import java.util.Set;
 
 public interface CrudJpaService<T> {
 
-    void save(T service);
+    T save(T service);
 
     void saveAll(Set<T> services);
 
