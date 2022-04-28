@@ -1,7 +1,6 @@
 package com.mcs.springpetclinic.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,8 +10,23 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "pets")
 public class Pet extends NameEntity {
+
+    @Builder
+    public Pet(
+            Long id,
+            String name,
+            Owner owner,
+            LocalDate birthday,
+            PetType petType) {
+        super(id, name);
+        this.owner = owner;
+        this.birthday = birthday;
+        this.petType = petType;
+    }
 
     @ManyToOne
     @JoinColumn(name = "owner_id")

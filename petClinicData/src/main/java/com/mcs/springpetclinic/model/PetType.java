@@ -1,7 +1,6 @@
 package com.mcs.springpetclinic.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -9,6 +8,13 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "types")
 public class PetType extends NameEntity {
+
+    @Builder
+    public PetType(Long id, String name) {
+        super(id, name);
+    }
 }

@@ -12,6 +12,12 @@ import javax.persistence.MappedSuperclass;
 @AllArgsConstructor
 public abstract class NameEntity extends BaseEntity {
 
+    @Builder
+    public NameEntity(Long id, String name) {
+        super(id);
+        this.name = name;
+    }
+
     @Column(name = "name")
     private String name;
 
