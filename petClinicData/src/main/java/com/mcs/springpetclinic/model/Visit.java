@@ -2,9 +2,10 @@ package com.mcs.springpetclinic.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -13,7 +14,8 @@ import java.time.LocalDateTime;
 public class Visit extends BaseEntity {
 
     @Column(name = "date")
-    private LocalDateTime date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
 
     @Column(name = "description")
     private String description;
