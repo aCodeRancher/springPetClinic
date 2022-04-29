@@ -22,11 +22,16 @@ public class Pet extends NameEntity {
             String name,
             Owner owner,
             LocalDate birthday,
-            PetType petType) {
+            PetType petType,
+            Set<Visit> visits) {
         super(id, name);
         this.owner = owner;
         this.birthday = birthday;
         this.petType = petType;
+
+        if (visits != null && visits.size() > 0) {
+            this.visits = visits;
+        }
     }
 
     @ManyToOne
